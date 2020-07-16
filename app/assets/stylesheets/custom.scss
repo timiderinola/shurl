@@ -170,3 +170,11 @@ aside {
 		color: $state-danger-text;
 	}
 }
+
+
+.url-list {
+	list-style: none;
+	span {
+		display: block
+	}
+}

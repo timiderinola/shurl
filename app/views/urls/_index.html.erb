@@ -1,10 +1,11 @@
 <% if current_user.urls. any? %>
 	<% current_user.urls.each do |url| %>
 		<ul>
-			<li>
-				<%= url.name %>
-				<%= url.long_url %>
-				<%= link_to url.short_url, url %>
+			<li class="url-list">
+				<span><%= url.name %></span>
+				<span><%= url.long_url %></span>
+				<span><%= link_to url.short_url, url.short_url %></span>
+				<span>Number of clicks: <%= url.click %></span>
 			</li>
 		</ul>
 	<% end %>
