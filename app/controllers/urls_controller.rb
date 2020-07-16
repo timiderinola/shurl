@@ -10,28 +10,27 @@ class UrlsController < ApplicationController
   end
 
   def create
-  	@url = current_user.urls.build(url_params)
-    @url.sanitize
+    @url = Url.new(url_params)
+    # @url.sanitize
     if !@url.new_url?
-      flash[:notice] = "A shurl for this URL already exists."
+      flash[:info] = "A shurl for this URL already exists: #{@url.find_duplicate.short_url}"
       redirect_to root_url
     else
+      @url.user_id = current_user.id
     	if @url.save
     		flash[:success] = "Url shortened."
     		redirect_to root_url
     	else
-    		flash[:error] = "Error shortening URL."
+    		flash[:danger] = "Error shortening URL."
     		redirect_to root_url
     	end
-    end
+    end  
+  end
 
-  	def show
-      @url = Url.find_by_short_url(params[:short_url])
-  		redirect_to @url.long_url.to_s
-      @url.clicked!
-      debugger
-  	end
-    
+  def show
+    @url = Url.find_by_short_url(params[:short_url])
+    redirect_to @url.long_url.to_s
+    @url.clicked!
   end
 
   	private

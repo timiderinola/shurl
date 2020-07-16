@@ -4,12 +4,8 @@ class Url < ApplicationRecord
   validates :long_url, presence: true, length: { minimum: 10 }
   validates_url :long_url
 
+  before_save { self.long_url = self.sanitize }
   before_save { self.short_url = get_shurl }
-  before_save { self.set_click }
-
-  def set_click
-    self.click = 0
-  end
 
   def get_shurl
     short_url = [*('a'..'z'),*('0'..'9'),*('A'..'Z')].shuffle[0,6].join
@@ -38,9 +34,8 @@ class Url < ApplicationRecord
   end
 
   def sanitize 
-    long_url.strip!
-    sane_url = self.long_url.downcase.gsub(/(https?:\/\/) | (www\.)/,"")
-    self.long_url = sane_url
+    self.long_url.strip!
+    self.long_url.downcase.gsub(/(https?:\/\/) | (www\.)/,"")
   end
 
 end
