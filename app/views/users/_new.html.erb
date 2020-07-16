@@ -1,8 +1,8 @@
 <%= form_with(model: @user, local: true) do |f| %>
-	<%= render 'shared/error_messages' %>
-	<%= f.text_field :name, class: "form-control", placeholder: "Enter your name" %>
-	<%= f.email_field :email, class: "form-control", placeholder: "Enter your email" %>
-	<%= f.password_field :password, class: "form-control", placeholder: "Create password" %>
-	<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Repeat password" %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.text_field :name, class: "form-control", placeholder: "Enter your name", required: true %>
+	<%= f.email_field :email, class: "form-control", placeholder: "Enter your email", required: true %>
+	<%= f.password_field :password, class: "form-control", placeholder: "Create password", required: true %>
+	<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Repeat password", required: true %>
 	<%= f.submit "Create account", class: "btn btn-primary" %>
 <% end %>

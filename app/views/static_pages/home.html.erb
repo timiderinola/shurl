@@ -1,16 +1,15 @@
-<div class="center">
-	<% unless logged_in? %>
-		<h1>Hi. I'm shurl, SHortener of URLs.</h1>
-
-		<h2>
-			Simply paste your loooooooooooooooooong URL and get a shurl.
-		</h2>
-		<span>Sign in to keep track of your shurls.</span>
-		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
-				<%= render 'sessions/new' %>
-				<p class="divider-text"><span class="bg-light">OR</span></p>
-				<%= render 'users/new' %>
-			</div>
-	<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<% if logged_in? %>
+			<%= render 'urls/new' %>
+			<%= render 'urls/index' %>
+		<% else %>
+			<h1>Hi. I'm shurl, SHortener of URLs.</h1>
+			<h2>Simply paste your loooooooooooooooooong URL and get a shurl.</h2>
+			<span>Sign in to keep track of your shurls.</span>
+			<%= render 'sessions/new' %>
+			<p class="divider-text"><span class="bg-light">OR</span></p>
+			<%= render 'users/new' %>
+		<% end %>
+	</div>
 </div>

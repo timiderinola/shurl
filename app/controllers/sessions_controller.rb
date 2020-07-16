@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
   		log_in user
   		redirect_to root_url
   	else
-  		flash.now[:danger] = 'Invalid email/password combination' # Not quite right!
+  		flash[:danger] = 'Invalid email/password combination' # Not quite right!
   		redirect_to root_url
   	end
   end

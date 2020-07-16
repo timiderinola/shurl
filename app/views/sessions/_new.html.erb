@@ -1,6 +1,6 @@
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
-	<%= render 'shared/error_messages' %>
-	<%= f.email_field :email, class: 'form-control', placeholder: 'email@example.com' %>
-	<%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.email_field :email, class: 'form-control', placeholder: 'email@example.com', required: true %>
+	<%= f.password_field :password, class: 'form-control', placeholder: "Password", required: true %>
 	<%= f.submit "Log in", class: "btn btn-primary" %>
 <% end %>

@@ -1,0 +1,6 @@
+<%= form_with(model: @url, local: true) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+  <%= f.text_field :name, class: "form-control", placeholder: "URL name (optional)" %>
+	<%= f.text_field :long_url, class: "form-control", placeholder: "Paste long url here", required: true %>
+  <%= f.submit "Create shurl", class: "btn btn-primary" %>
+<% end %>

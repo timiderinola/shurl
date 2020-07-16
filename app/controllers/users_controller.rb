@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   		flash[:success] = "Account created successfully."
   		redirect_to root_url
   	else
-  		render 'new'
+  		redirect_to root_url
   	end
   end
 

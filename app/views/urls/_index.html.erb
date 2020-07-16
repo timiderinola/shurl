@@ -1,0 +1,11 @@
+<% if current_user.urls. any? %>
+	<% current_user.urls.each do |url| %>
+		<ul>
+			<li>
+				<%= url.name %>
+				<%= url.long_url %>
+				<%= link_to url.short_url, url %>
+			</li>
+		</ul>
+	<% end %>
+<% end %>
