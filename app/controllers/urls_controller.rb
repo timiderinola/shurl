@@ -29,7 +29,7 @@ class UrlsController < ApplicationController
   	def show
       @url = Url.find_by_short_url(params[:short_url])
   		redirect_to @url.long_url.to_s
-      @url.update_attribute(:click, @link.click + 1)
+      @url.update_attribute(:click, @url.click + 1)
   	end
 
   end
