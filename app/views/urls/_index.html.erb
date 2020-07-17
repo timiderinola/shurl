@@ -1,12 +1,29 @@
-<% if current_user.urls. any? %>
-	<% current_user.urls.each do |url| %>
-		<ul>
-			<li class="url-list">
-				<span><%= url.name %></span>
-				<span><%= url.long_url %></span>
-				<span><%= link_to url.short_url, url.short_url %></span>
-				<span>Number of clicks: <%= url.click %></span>
-			</li>
-		</ul>
-	<% end %>
+<% if current_user.urls.any? %>
+	<h2>Your Links</h2>
+	<div class="list-group">
+		<% current_user.urls.each do |url| %>
+  		<%= link_to '#', :class => 'list-group-item' do %>
+  			<input type="text" id=<%= "#{url.short_url}" %> class="short_url list-group-item-heading" disabled value=<%= "#{request.host_with_port}/#{url.short_url}" %> > <span class="badge badge-secondary"><%= url.name || url.short_url %></span>
+  			<br>
+    		<span class="list-group-item-text"><%= url.long_url %></span>
+    		<i class="fa fa-clipboard pull-right" aria-hidden="true" role="button" onclick="myFunction(<%= url.short_url %>)" title="Copy short url"></i>
+  		<% end %>
+  	<% end %>
+	</div>
 <% end %>
+
+<script type="text/javascript">
+	function myFunction(id) {
+	  /* Get the text field */
+	  console.log(id.id);
+	  var copyText = document.getElementById(id.id);
+	  /* Select the text field */
+	  copyText.disabled = false
+	  copyText.select();
+	  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+	  document.execCommand("copy");
+	  copyText.disabled = true
+
+	}
+</script>
+

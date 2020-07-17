@@ -1,8 +1,22 @@
 <%= form_with(model: @user, local: true) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<%= f.text_field :name, class: "form-control", placeholder: "Enter your name", required: true %>
-	<%= f.email_field :email, class: "form-control", placeholder: "Enter your email", required: true %>
-	<%= f.password_field :password, class: "form-control", placeholder: "Create password", required: true %>
-	<%= f.password_field :password_confirmation, class: "form-control", placeholder: "Repeat password", required: true %>
-	<%= f.submit "Create account", class: "btn btn-primary" %>
+	<div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-user"></i> </span>
+    <%= f.text_field :name, class: "form-control", placeholder: "Enter your name", required: true %>
+  </div> <!-- / -->
+  <div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-envelope"></i> </span>
+    <%= f.email_field :email, class: "form-control", placeholder: "Enter your email", required: true %>
+  </div> <!-- / -->
+	<div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-lock"></i> </span>
+    <%= f.password_field :password, class: "form-control", placeholder: "Create password", required: true %>
+  </div> <!-- / -->
+	<div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-lock"></i> </span>
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Repeat password", required: true %>
+  </div> <!-- / -->
+	<div>
+		<%= f.submit "Create account", class: "btn btn-primary btn-block" %>
+	</div>
 <% end %>

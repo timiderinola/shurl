@@ -3,9 +3,11 @@ class UrlsController < ApplicationController
   
   def index
   	@urls = current_user.urls.all
+    @host = request.host_with_port
   end
 
   def new
+    @host = request.host_with_port
   	@url = Url.new
   end
 

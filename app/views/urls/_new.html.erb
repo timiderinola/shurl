@@ -1,6 +1,14 @@
 <%= form_with(url: urls_create_path, scope: :url, local: true) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-  <%= f.text_field :name, class: "form-control", placeholder: "URL name (optional)" %>
-	<%= f.text_field :long_url, class: "form-control", placeholder: "Paste long url here", required: true %>
-  <%= f.submit "Create shurl", class: "btn btn-primary" %>
+  <div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-link"></i> </span>
+    <%= f.text_field :long_url, class: "form-control", placeholder: "Paste long url here", required: true %>
+  </div> <!-- form-group// -->
+	<div class="input-group">
+    <span class="input-group-addon"> <i class="fa fa-info"></i> </span>
+    <%= f.text_field :name, class: "form-control", placeholder: "Give it a name (optional)" %>
+  </div> <!-- form-group// -->
+  <div>
+  	<%= f.submit "Create shurl", class: "btn btn-primary btn-block" %>
+  </div>
 <% end %>

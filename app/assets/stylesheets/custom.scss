@@ -118,9 +118,10 @@ aside {
 }
 
 /* forms */
-/*.card {
+.card {
 	width: max-content;
-}*/
+	margin: 4em auto 0;
+}
 
 .divider-text {
   position: relative;
@@ -146,14 +147,8 @@ aside {
   z-index: 1;
 }
 
-.btn-facebook {
-  background-color: #405D9D;
-  color: #fff;
-}
-
-.btn-twitter {
-  background-color: #42AEEC;
-  color: #fff;
+.input-group {
+	margin: 10px 0;
 }
 
 #error_explanation {
@@ -171,10 +166,13 @@ aside {
 	}
 }
 
-
 .url-list {
 	list-style: none;
 	span {
 		display: block
 	}
+}
+
+.list-group-item {
+	min-height: 4.2em;
 }
