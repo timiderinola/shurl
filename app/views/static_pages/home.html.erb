@@ -1,6 +1,6 @@
-<div class="container">
+<div class="home-container">
 	<div class="card bg-light">
-		<article class="card-body mx-auto" style="max-width: 400px;">
+		<article class="card-body mx-auto" style=" max-width: 43em;">
 			<% if logged_in? %>
 				<%= render 'urls/new' %>
 				<aside>
@@ -8,7 +8,7 @@
 				</aside>
 				
 			<% else %>
-				<h2>Simply paste your loooooooooooooong URL and get a <b>sh</b>ort <b>url</b> (shurl)</h2>
+				<h2 id="welcome">Simply paste your loooooooooooooong URL and get a <b>sh</b>ort <b>url</b> (shurl)</h2>
 				<p class="text-center">Sign in to keep track of your shurls.</p>
 				<%= render 'sessions/new' %>
 				<p class="divider-text"><span class="bg-light"></span></p>

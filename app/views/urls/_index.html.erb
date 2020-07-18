@@ -2,12 +2,16 @@
 	<h2>Your Links</h2>
 	<div class="list-group">
 		<% current_user.urls.each do |url| %>
-  		<%= link_to '#', :class => 'list-group-item' do %>
-  			<input type="text" id=<%= "#{url.short_url}" %> class="short_url list-group-item-heading" disabled value=<%= "#{request.host_with_port}/#{url.short_url}" %> > <span class="badge badge-secondary"><%= url.name || url.short_url %></span>
-  			<br>
-    		<span class="list-group-item-text"><%= url.long_url %></span>
-    		<i class="fa fa-clipboard pull-right" aria-hidden="true" role="button" onclick="myFunction(<%= url.short_url %>)" title="Copy short url"></i>
-  		<% end %>
+			<% unless !url.short_url %>
+	  		<%= link_to '#', :class => 'list-group-item' do %>
+	  			<% protocol = Rails.env.production? ? "http://" : "" %>
+	  			<span class="badge badge-secondary pull-left"><%= url.name || url.short_url %></span><br>
+	  			<input type="text" id=<%= "#{url.short_url}" %> class="short_url list-group-item-heading" disabled value=<%= "#{protocol}#{request.host_with_port}/#{url.short_url}" %> >
+	  			<br>
+	    		<span class="list-group-item-text"><%= url.long_url %></span>
+	    		<i class="fa fa-clipboard pull-right" aria-hidden="true" role="button" onclick="myFunction(<%= url.short_url %>)" title="Copy short url"></i>
+	  		<% end %>
+	  	<% end %>
   	<% end %>
 	</div>
 <% end %>

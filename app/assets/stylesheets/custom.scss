@@ -3,8 +3,18 @@
 
 /* universal */
 
+/** {
+	border: red solid 1px;
+}*/
+
 body {
+	width: 100vw;
 	padding-top: 60px;
+	position: relative;
+}
+
+header {
+	position: relative;
 }
 
 section {
@@ -34,10 +44,6 @@ h1 {
 	letter-spacing: -2px;
 	margin-bottom: 30px;
 	text-align: center;
-}
-
-.jumbotron h1 {
-	font-size: 2.5em;
 }
 
 h2 {
@@ -70,6 +76,15 @@ p {
 #logo:hover {
 	color: #fff;
 	text-decoration: none;
+}
+
+/* home */
+.home-container, .main {
+	margin: auto;
+}
+
+#welcome {
+	margin-top: -10px !important;
 }
 
 /* footer */ 
@@ -119,8 +134,10 @@ aside {
 
 /* forms */
 .card {
-	width: max-content;
 	margin: 4em auto 0;
+	article {
+		margin: auto;
+	}
 }
 
 .divider-text {
@@ -135,16 +152,6 @@ aside {
   font-size: 12px;
   position: relative;   
   z-index: 2;
-}
-
-.divider-text:after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  border-bottom: 1px solid #ddd;
-  top: 55%;
-  left: 0;
-  z-index: 1;
 }
 
 .input-group {
