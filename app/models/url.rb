@@ -35,7 +35,7 @@ class Url < ApplicationRecord
 
   def sanitize 
     self.long_url.strip!
-    self.long_url.downcase.gsub(/(https?:\/\/) | (www\.)/,"")
+    self.long_url.gsub(/(https?:\/\/) | (www\.)/,"")
   end
 
 end

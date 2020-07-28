@@ -183,3 +183,11 @@ aside {
 .list-group-item {
 	min-height: 4.2em;
 }
+
+.list-group-item-text {
+	overflow:hidden;
+	width: 90%; 
+	display: inline-block;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+}
